@@ -1,0 +1,21 @@
+SELECT `discipline_has_tournament`.`discipline_disciplinename`, `discipline_has_tournament`.`clubs_#clubsname` from `dyach`.`discipline_has_tournament`
+WHERE `discipline_disciplinename` = 'CS2'
+
+SELECT `tournament`.`#tournamentname`, `tournament`.`prizepool` from `dyach`.`tournament`
+WHERE prizepool > 5000
+
+SELECT 
+`discipline`.`disciplinename` , `clubs`.`counrty`,
+`tournament`.`prizepool`,
+`tournament`.`#tournamentname`
+FROM
+`discipline_has_tournament`,
+`tournament`,
+`clubs`,
+`discipline`
+WHERE
+	`tournament`.`#tournamentname` = `#tournamentname`
+    and `discipline_has_tournament`.`discipline_disciplinename` = `discipline`.`disciplinename`
+    and `prizepool` > 6000
+    and `discipline_has_tournament`.`tournament_#tournamentname` = `tournament`.`#tournamentname`
+    and `discipline_has_tournament`.`clubs_#clubsname` = `clubs`.`#clubsname`
